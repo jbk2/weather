@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Webpack weather-app</title>
-    </head>
-    <body>
-        <header>
-            <form id="area-form" action="#">
-                <input id="area-input" type="text" placeholder="area">
-                <button type="submit">Get forecast</button>
-            </form>
-        </header>
-        <section>
-            <main>
+	<head>
+		<meta charset="utf-8" />
+		<title>Webpack weather-app</title>
+	</head>
+	<body>
+		<header>
+			<form id="area-form" action="#">
+				<input id="area-input" type="text" placeholder="area">
+				<button type="submit">Get forecast</button>
+			</form>
+		</header>
+			<main>
+				<section>
+					<div id="top-row">
+						<article id="current-weather">
+							<div id="left-section">
+								<p id="icon-current">☀️</p>
+								<h4>Temp</h4>
+								<div id="stats">
+									<p>precipitation</p>
+									<p>humidity</p>
+									<p>wind</p>
+								</div>
+							</div>
 
-            </main>
-        </section>
-    </body>
+							<div id="right-section">
+								<h4>Weather</h4>
+								<div>Date</div>
+								<div>Time</div>
+							</div>
+						</article>
+					</div>
+					
+					<div id="bottom-row">
+						<article>
+							<h4>day</h4>
+							<p>icon</p>
+							<div>
+								<p>min</p>
+								<p>max</p>
+							</div>
+						</article>
+
+					</div>
+				</section> 
+			</main>
+	</body>
     
 </html>

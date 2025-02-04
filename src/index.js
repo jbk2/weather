@@ -1,5 +1,6 @@
-import './styles.css'
-import { Forecast } from './forecast';
+import './assets/stylesheets/styles.css'
+import { Forecast } from './components/forecast';
+import { UIController } from './services/UIController';
 
 document.addEventListener('DOMContentLoaded', () => {
   const areaForm = document.getElementById('area-form')
@@ -16,8 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
     UIController.displayForecast(forecast.getForecastJSON())
     return forecast;
   });
-
-
-
 
 });

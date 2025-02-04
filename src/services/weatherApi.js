@@ -9,7 +9,7 @@ export class WeatherApi {
       const weatherApiKey = 'UK7QEAVD2N2BJANGP8Q3GGSFV'
       const baseUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${dateToday}/${dateIn5Days}?key=${weatherApiKey}&iconSet=icons1`;
       const response = await fetch(baseUrl);
-      if(!response.ok) throw new Error(`Http Error, status: ${response.status}`)
+      if(!response.ok) throw new Error(`Http Error, status: ${response.status} message: ${response.message}`)
       console.log(response);
       return await response.json();
     } catch (error) {

@@ -1,4 +1,4 @@
-import { WeatherApi } from "./weatherApi";
+import { WeatherApi } from "../services/weatherApi";
 
 export class Forecast {
   #location;
@@ -24,4 +24,5 @@ export class Forecast {
     return this.#forecastJSON;
   }
 
+  
 }

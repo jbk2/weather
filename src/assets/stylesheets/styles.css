@@ -1,0 +1,109 @@
+const [sun, cloud25, cloud50, cloud75, cloud100, rainLight, rainMedium, rainHeavy, snow, wind ] = ['☀️', '🌤️', '⛅', '🌥️', '☁️', , '🌧️🌧️', '🌧️🌧️🌧️', , '💨']
+
+.snow::before {
+  content: '🌨️'
+}
+
+.rain::before {
+   content: '🌧️'
+}
+
+.fog::before {
+   content: '🌫️'
+}
+
+.wind::before {
+   content: '🌬️'
+}	
+
+.cloudy::before {
+   content: '☁️'
+}
+
+.partly-cloudy-day::before {
+   content: '⛅'
+}
+
+.partly-cloudy-night::before {
+  content: '⛅︎'
+}
+
+.clear-day::before {
+   content: '☀️'
+}
+
+.clear-night::before {
+   content: '🌖'
+}
+
+body {
+  margin: 0;
+  background-color: rgb(239, 246, 235);
+}
+
+header {
+  width: 100%;
+  background-color: rgb(0, 93, 151);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {  
+}
+
+section {
+  height: 6rem;
+  width: 28rem;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 1fr 1fr;
+  border: 2px solid black;
+  gap: 4px; 
+}
+
+/* ########################  Top Row ########################## */
+
+article#current-weather {
+  display: flex;
+  justify-content: space-between;
+}
+
+article > #left-section {
+  display: flex;
+}
+
+article > #left-section > #stats {
+  margin: auto;
+}
+
+article > #left-section > #stats p {
+  margin: 0;
+}
+
+#icon-current {
+  font-size: xx-large;
+}
+
+/* ######################## Bottom Row ########################## */
+
+
+
+/* Visual Crossing 'icons2' *16 possible icon values: */
+/* snow-showers-day
+snow-showers-night
+thunder-rain
+thunder-showers-day
+thunder-showers-night
+rain
+showers-day
+showers-night
+fog
+wind
+cloudy
+partly-cloudy-day
+partly-cloudy-night
+clear-day
+clear-night */

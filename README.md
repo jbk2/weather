@@ -1,15 +1,6 @@
-# 🚀 Welcome to your new awesome project!
+##ToDo list:
 
-This project has been created using **create-webpack-app**, you can now run
+- handle errors for unrecognised area input
+- Add get location functionality
+- 
 
-```bash
-npm run build
-```
-
-or
-
-```bash
-yarn build
-```
-
-to bundle your application
