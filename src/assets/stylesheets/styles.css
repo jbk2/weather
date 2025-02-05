@@ -44,41 +44,18 @@ const [sun, cloud25, cloud50, cloud75, cloud100, rainLight, rainMedium, rainHeav
 }
 
 .clear-day::before {
-   content: '☀️'
+  content: '☀️'
 }
 
 .clear-night::before {
-   content: '🌖'
+  content: '🌖'
 }
 
+/* ########################  Global ########################## */
 body {
   font-family: 'raleway';
   margin: 0;
   background-color: rgb(239, 246, 235);
-}
-
-header {
-  width: 100%;
-  background-color: rgb(0, 93, 151);
-  height: 3.6rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-div#logo-type {
-  position: absolute;
-  left: 2rem;
-  color: white;
-  font-family: 'sixtyfour';
-  font-size: small;
-  /* scan -53-100, bled 0-100, xela & yela -100-100 */
-  font-variation-settings: "BLED" 0, "SCAN" 0 , "XELA" 0, "YELA" 0;
-  /* BLED
-  SCAN
-  XELA
-  YELA */
 }
 
 h4 {
@@ -99,17 +76,75 @@ sups {
   vertical-align: super;
 }
 
+/* ########################  Header ########################## */
+header {
+  /* width: 100%; */
+  background-color: rgb(27, 89, 128);
+  height: fit-content;
+  padding-block: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
 
+#logo-type {
+  margin-left: 2rem;
+  color: white;
+  font-family: 'sixtyfour';
+  font-size: x-large;
+  /* scan -53-100, bled 0-100, xela & yela -100-100 */
+  font-variation-settings: "BLED" 0, "SCAN" 0 , "XELA" 0, "YELA" 0;
+}
+
+form#area-form {
+  height: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form#area-form * {
+  font-family: "raleway";
+  border: none;
+}
+
+form#area-form > input {
+  border-radius: 3px;
+  height: 2rem;
+  font-size: 1rem;
+  padding-left: 0.4rem;
+}
+
+form#area-form > input::placeholder {
+  font-size: 1rem;
+  padding-left: 0.4rem;
+  opacity: 80%;
+}
+
+form#area-form > button {
+  height: 2.1rem;
+  margin-left: 0.2rem;
+  padding-inline: 0.5rem;
+  font-variation-settings: "wght" 450;
+  letter-spacing: 0.05rem;
+  font-size: medium;
+  border-radius: 3px;
+  color: lightcyan;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+form#area-form > button:hover {
+  cursor: pointer;
+}
+
+/* ########################  Main Content ########################## */
 main {
   margin-top: 15vh;
   height: 100vh;
 }
 
-form#area-form {
-}
-
 /* ########################  Forecast section ########################## */
-
 section#forecast {
   display: flex;
   align-items: center;
@@ -117,7 +152,6 @@ section#forecast {
   isolation: isolate;
   margin-inline: auto;
   width: 80vw;
-  /* height: clamp(20rem, 50vh, 60vh); */
 }
 
 section#forecast::after {
@@ -139,23 +173,25 @@ section#forecast::after {
 }
 
 section#forecast > div {
-  width: 30rem;
-  height: fit-content;
+  width: fit-content;
   margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   display: grid;
   grid-template-columns: 1;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 0.9fr 1fr;
   gap: 4px;
 }
 
 #top-row #right-section > p > span {
-  /* font-variant-numeric: ordinal; */
   font-feature-settings: "ordn";
 }
 
 /* ########################  Top Row - left section ########################## */
 #top-row {
   margin-top: 2rem;
+  padding-inline: 1rem;
+  height: 3rem;
 }
 
 article#current-weather {
@@ -197,15 +233,18 @@ article > #left-section > #stats > p {
   font-size: 4rem;
 }
 /* ########################  Top Row - right section ########################## */
-
 #current-weather > #right-section {
   display: flex;
   flex-direction: column;
 }
 
-#right-section > P {
+#right-section > p {
   margin-left: 0.2rem;
   font-variation-settings: "wght" 330;
+}
+
+#right-section #date {
+  font-feature-settings: "ordn";
 }
 
 #ordinal {
@@ -213,13 +252,24 @@ article > #left-section > #stats > p {
 }
 
 /* ######################## Bottom Row ########################## */
-
 #bottom-row {
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  align-content: center;
+  margin-bottom: 4rem;
+}
+
+#bottom-row > article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1.4rem;
+}
+
+#bottom-row > article:not(:last-child) {
+  border-right: 1px solid black;
 }
 
 #icon-day {
@@ -234,6 +284,10 @@ div#temp {
 
 div#temp > p, #stats > p > span {
 font-variant-numeric: lining-nums;
+}
+
+div#temp p#max {
+  margin-right: 0.4rem;
 }
 
 /* Visual Crossing 'icons2' *16 possible icon values: */

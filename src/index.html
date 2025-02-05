@@ -6,56 +6,84 @@
 	</head>
 	<body>
 		<header>
-			<div id="logo-type">
-				<h1>World Weather Watcher</h1>
-				<!-- <h1>Carrera</h1> -->
-			</div>
+			<h1 id="logo-type">World Weather Watcher</h1>
 			<form id="area-form" action="#">
-				<input id="area-input" type="text" placeholder="area">
+				<input id="area-input" type="text" placeholder="city/town" autofocus>
 				<button type="submit">Get forecast</button>
 			</form>
 		</header>
-			<main>
-				<section id="forecast">
-					<div>
-						<div id="top-row">
-							<article id="current-weather">
-								<div id="left-section">
-									<p id="icon-current">☀️</p>
-									<h4 id="temp">16<sups class="degrees">°C</sups></h4>
-									<div id="stats">
-										<p>precipitation: <span id="precip-val">100%</span></p>
-										<p>humidity: <span id="humid-val">64%</span></p>
-										<p>wind: <span id="wind-val">10kts</span></p>
-									</div>
+		<main>
+			<section id="forecast">
+				<div>
+					<div id="top-row">
+						<article id="current-weather">
+							<div id="left-section">
+								<p id="icon-current">☀️</p>
+								<h4 id="temp">16<sups class="degrees">°C</sups></h4>
+								<div id="stats">
+									<p>precipitation: <span id="precip-val">100%</span></p>
+									<p>humidity: <span id="humid-val">64%</span></p>
+									<p>wind: <span id="wind-val">10kts</span></p>
 								</div>
-								<div id="right-section">
-									<h4>Weather</h4>
-									<p id="day">Wednesday
-										<span id="date">4</span>
-										<sups id="ordinal">th</sups>
-									</p>
-									<p id="time">12:00hrs</p>
-								</div>
-							</article>
-						</div>
-						
-						<div id="bottom-row">
-							<article>
-								<h5 id="day">Tue</h5>
-								<p id="icon-day">☀️</p>
-								<div id="temp">
-									<p id="max">16<span>°</span></p>
-									<p id="min">4<span>°</span></p>
-								</div>
-							</article>
-						</div>
-
+							</div>
+							<div id="right-section">
+								<h4>Weather</h4>
+								<p id="day">Wednesday 
+									<span id="date">4</span><sups id="ordinal">th</sups>
+								</p>
+								<p id="time">12:00<span>hrs</span></p>
+							</div>
+						</article>
 					</div>
 					
+					<div id="bottom-row">
+						<article id="day1">
+							<h5 id="day">Tue</h5>
+							<p id="icon-day">☀️</p>
+							<div id="temp">
+								<p id="max"><span>↑</span>16<span>°</span></p>
+								<p id="min"><span>↓</span>4<span>°</span></p>
+							</div>
+						</article>
+						<article id="day2">
+							<h5 id="day">Tue</h5>
+							<p id="icon-day">☀️</p>
+							<div id="temp">
+								<p id="max"><span>↑</span>16<span>°</span></p>
+								<p id="min"><span>↓</span>4<span>°</span></p>
+							</div>
+						</article>
+						<article id="day3">
+							<h5 id="day">Tue</h5>
+							<p id="icon-day">☀️</p>
+							<div id="temp">
+								<p id="max"><span>↑</span>16<span>°</span></p>
+								<p id="min"><span>↓</span>4<span>°</span></p>
+							</div>
+						</article>
+						<article id="day4">
+							<h5 id="day">Tue</h5>
+							<p id="icon-day">☀️</p>
+							<div id="temp">
+								<p id="max"><span>↑</span>16<span>°</span></p>
+								<p id="min"><span>↓</span>4<span>°</span></p>
+							</div>
+						</article>
+						<article id="day5">
+							<h5 id="day">Tue</h5>
+							<p id="icon-day">☀️</p>
+							<div id="temp">
+								<p id="max"><span>↑</span>16<span>°</span></p>
+								<p id="min"><span>↓</span>4<span>°</span></p>
+							</div>
+						</article>
+					</div>
 
-				</section> 
-			</main>
+				</div>
+				
+
+			</section> 
+		</main>
 	</body>
     
 </html>
