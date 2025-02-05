@@ -205,11 +205,11 @@ article > #left-section {
   align-items: center;
 }
 
-article > #left-section > #icon-current {
+article > #left-section > .icon-today {
   margin-right: 0.5rem;
 }  
 
-article #left-section #temp > sups.degrees {
+article #left-section #temp-today > sups.degrees {
   margin-right: 0.6rem;
   font-size: large;
   font-variation-settings: "wght" 350;
@@ -229,7 +229,7 @@ article > #left-section > #stats > p {
   font-variation-settings: "wght" 600;
 }
 
-#icon-current {
+#icon-today {
   font-size: 4rem;
 }
 /* ########################  Top Row - right section ########################## */
@@ -272,21 +272,21 @@ article > #left-section > #stats > p {
   border-right: 1px solid black;
 }
 
-#icon-day {
+.icon-day {
   font-size: 2.6rem;
 }
 
-div#temp {
+div.temp {
   display: flex;
   align-items: baseline;
   gap: 0.2rem;
 }
 
-div#temp > p, #stats > p > span {
+div.temp > p, #stats > p > span {
 font-variant-numeric: lining-nums;
 }
 
-div#temp p#max {
+div.temp p.max {
   margin-right: 0.4rem;
 }
 
