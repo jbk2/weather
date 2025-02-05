@@ -79,7 +79,7 @@ sups {
 /* ########################  Header ########################## */
 header {
   /* width: 100%; */
-  background-color: rgb(27, 89, 128);
+  background-color: rgb(16, 58, 104);
   height: fit-content;
   padding-block: 0.8rem;
   display: flex;
@@ -92,7 +92,7 @@ header {
   margin-left: 2rem;
   color: white;
   font-family: 'sixtyfour';
-  font-size: x-large;
+  font-size: xx-large;
   /* scan -53-100, bled 0-100, xela & yela -100-100 */
   font-variation-settings: "BLED" 0, "SCAN" 0 , "XELA" 0, "YELA" 0;
 }
@@ -125,7 +125,7 @@ form#area-form > button {
   height: 2.1rem;
   margin-left: 0.2rem;
   padding-inline: 0.5rem;
-  font-variation-settings: "wght" 450;
+  font-variation-settings: "wght" 550;
   letter-spacing: 0.05rem;
   font-size: medium;
   border-radius: 3px;
@@ -163,7 +163,7 @@ section#forecast::after {
     rgb(207, 100, 207),
     #f95858
   );
-  transform: skewY(-2deg);
+  transform: skewY(-3deg);
   inset: 0;
   z-index: -1;
   --mask: 

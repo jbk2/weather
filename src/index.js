@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const forecast = new Forecast(inputVal);
     await forecast.fetchForecast();
     console.log(forecast.getForecastJSON())
-    UIController.displayForecast(forecast.getForecastJSON())
+    UIController.displayForecast(forecast);
     return forecast;
   });
 
