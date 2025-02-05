@@ -16,38 +16,44 @@
 			</form>
 		</header>
 			<main>
-				<section>
-					<div id="top-row">
-						<article id="current-weather">
-							<div id="left-section">
-								<p id="icon-current">☀️</p>
-								<h4>Temp</h4>
-								<div id="stats">
-									<p>precipitation</p>
-									<p>humidity</p>
-									<p>wind</p>
+				<section id="forecast">
+					<div>
+						<div id="top-row">
+							<article id="current-weather">
+								<div id="left-section">
+									<p id="icon-current">☀️</p>
+									<h4 id="temp">16<sups class="degrees">°C</sups></h4>
+									<div id="stats">
+										<p>precipitation: <span id="precip-val">100%</span></p>
+										<p>humidity: <span id="humid-val">64%</span></p>
+										<p>wind: <span id="wind-val">10kts</span></p>
+									</div>
 								</div>
-							</div>
+								<div id="right-section">
+									<h4>Weather</h4>
+									<p id="day">Wednesday
+										<span id="date">4</span>
+										<sups id="ordinal">th</sups>
+									</p>
+									<p id="time">12:00hrs</p>
+								</div>
+							</article>
+						</div>
+						
+						<div id="bottom-row">
+							<article>
+								<h5 id="day">Tue</h5>
+								<p id="icon-day">☀️</p>
+								<div id="temp">
+									<p id="max">16<span>°</span></p>
+									<p id="min">4<span>°</span></p>
+								</div>
+							</article>
+						</div>
 
-							<div id="right-section">
-								<h4>Weather</h4>
-								<div>Date</div>
-								<div>Time</div>
-							</div>
-						</article>
 					</div>
 					
-					<div id="bottom-row">
-						<article>
-							<h4>day</h4>
-							<p>icon</p>
-							<div>
-								<p>min</p>
-								<p>max</p>
-							</div>
-						</article>
 
-					</div>
 				</section> 
 			</main>
 	</body>

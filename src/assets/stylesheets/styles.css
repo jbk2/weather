@@ -81,50 +81,160 @@ div#logo-type {
   YELA */
 }
 
-main {
-  margin-top: 5vh;
-}
-form#area-form {
-  
+h4 {
+  font-size: xx-large;
+  font-variation-settings: "wght" 600;
 }
 
-section {
-  height: 6rem;
-  width: 28rem;
+h5 {
+  font-size: x-large;
+  font-variation-settings: "wght" 630;
+}
+
+h4, h5, p {
+  margin: 0;
+}
+
+sups {
+  vertical-align: super;
+}
+
+
+main {
+  margin-top: 15vh;
+  height: 100vh;
+}
+
+form#area-form {
+}
+
+/* ########################  Forecast section ########################## */
+
+section#forecast {
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  margin-inline: auto;
+  width: 80vw;
+  /* height: clamp(20rem, 50vh, 60vh); */
+}
+
+section#forecast::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(
+    to right,
+    rgb(175, 223, 255),
+    rgb(207, 100, 207),
+    #f95858
+  );
+  transform: skewY(-2deg);
+  inset: 0;
+  z-index: -1;
+  --mask: 
+    conic-gradient(from 32.5deg at left,#0000,#000 1deg 114deg,#0000 115deg) left/51% 31.39px repeat-y,
+    conic-gradient(from -147.5deg at right,#0000,#000 1deg 114deg,#0000 115deg) right/51% 31.39px repeat-y;
+  -webkit-mask: var(--mask);
+}
+
+section#forecast > div {
+  width: 30rem;
+  height: fit-content;
   margin: auto;
   display: grid;
   grid-template-columns: 1;
   grid-template-rows: 1fr 1fr;
-  border: 2px solid black;
-  gap: 4px; 
+  gap: 4px;
 }
 
-/* ########################  Top Row ########################## */
+#top-row #right-section > p > span {
+  /* font-variant-numeric: ordinal; */
+  font-feature-settings: "ordn";
+}
+
+/* ########################  Top Row - left section ########################## */
+#top-row {
+  margin-top: 2rem;
+}
 
 article#current-weather {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 article > #left-section {
   display: flex;
+  align-items: center;
+}
+
+article > #left-section > #icon-current {
+  margin-right: 0.5rem;
+}  
+
+article #left-section #temp > sups.degrees {
+  margin-right: 0.6rem;
+  font-size: large;
+  font-variation-settings: "wght" 350;
 }
 
 article > #left-section > #stats {
   margin: auto;
 }
 
-article > #left-section > #stats p {
+article > #left-section > #stats > p {
   margin: 0;
+  font-size: x-small;
+}
+
+#stats > p > span {
+  margin-left: 0.3rem;
+  font-variation-settings: "wght" 600;
 }
 
 #icon-current {
-  font-size: xx-large;
+  font-size: 4rem;
+}
+/* ########################  Top Row - right section ########################## */
+
+#current-weather > #right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#right-section > P {
+  margin-left: 0.2rem;
+  font-variation-settings: "wght" 330;
+}
+
+#ordinal {
+  font-size: x-small;
 }
 
 /* ######################## Bottom Row ########################## */
 
+#bottom-row {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
 
+#icon-day {
+  font-size: 2.6rem;
+}
+
+div#temp {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+div#temp > p, #stats > p > span {
+font-variant-numeric: lining-nums;
+}
 
 /* Visual Crossing 'icons2' *16 possible icon values: */
 /* snow-showers-day
