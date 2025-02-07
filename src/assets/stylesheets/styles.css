@@ -4,11 +4,6 @@
 }
 
 @font-face {
-  font-family: 'montserrat-uline';
-  src: url('/src/assets/fonts/montserrat-uline-variable.ttf') format('truetype');
-}
-
-@font-face {
   font-family: 'sixtyfour';
   src: url('/src/assets/fonts/sixtyfour.ttf') format('truetype');
 }
