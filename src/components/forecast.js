@@ -72,6 +72,12 @@ export class Forecast {
   
   formatDate(epochSecs) {
     console.log(epochSecs)
+    const nowEpochMiliSecs = Math.floor(Date.now() / 1000);
+
+    if(typeof epochSecs !== 'number' || epochSecs < 1 || epochSecs > nowEpochMiliSecs || isNaN(epochSecs)) {
+      throw new Error('invalid epoch seconds value passed');
+    }
+
     const date = new Date(epochSecs * 1000)
     return date.getDate();
   }
