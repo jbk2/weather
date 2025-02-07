@@ -8,8 +8,6 @@
   src: url('/src/assets/fonts/sixtyfour.ttf') format('truetype');
 }
 
-const [sun, cloud25, cloud50, cloud75, cloud100, rainLight, rainMedium, rainHeavy, snow, wind ] = ['☀️', '🌤️', '⛅', '🌥️', '☁️', , '🌧️🌧️', '🌧️🌧️🌧️', , '💨']
-
 .snow::before {
   content: '🌨️'
 }

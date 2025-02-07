@@ -71,6 +71,7 @@ export class Forecast {
   }
   
   formatDate(epochSecs) {
+    console.log(epochSecs)
     const date = new Date(epochSecs * 1000)
     return date.getDate();
   }
