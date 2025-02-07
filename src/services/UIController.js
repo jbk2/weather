@@ -1,31 +1,37 @@
 export class UIController {
   static displayForecast(forecast) {
-    UIController.updateToday(forecast)
-    UIController.updateDays(forecast)
+    this.updateToday(forecast)
+    this.updateDays(forecast)
   }
   
   static updateToday(forecast) {
+    const elements = {
+      icon: document.getElementById('icon-today'),
+      temp: document.getElementById('temp-today'),
+      precip: document.getElementById('precip-val'),
+      humid: document.getElementById('humid-val'),
+      wind: document.getElementById('wind-val'),
+      day: document.getElementById('day-today'),
+      date: document.getElementById('date-today'),
+      time: document.getElementById('time-today')
+    };
     const today = forecast.getToday()
-    const [todayIcon, todayTemp, todayPrecip, todayHumid, todayWind, todayDay, todayDate, todayTime] =
-    [ document.getElementById('icon-today'), document.getElementById('temp-today'),
-      document.getElementById('precip-val'), document.getElementById('humid-val'),
-      document.getElementById('wind-val'), document.getElementById('day-today'),
-      document.getElementById('date-today'), document.getElementById('time-today'),
-    ]
-    todayIcon.className = today.icon;
-    todayTemp.innerText = today.temp;
-    todayPrecip.innerText = today.precipitation + '%';
-    todayHumid.innerText = today.humidity + '%';
-    todayWind.innerText = today.windSpeed + 'kts';
-    todayDay.innerText = today.day;
-    todayDate.innerText = today.date;
-    todayTime.innerHTML = `${today.time}<span>hrs</span>`
+
+    elements.icon.className = today.icon;
+    elements.temp.innerText = today.temp;
+    elements.precip.innerText = today.precipitation + '%';
+    elements.humid.innerText = today.humidity + '%';
+    elements.wind.innerText = today.windSpeed + 'kts';
+    elements.day.innerText = today.day;
+    elements.date.innerText = today.date;
+    elements.time.innerHTML = `${today.time}<span>hrs</span>`
   }
   
   static updateDays(forecast) {
-    const days = Array.from(document.querySelectorAll('article.forecast-day'));
     const daysForecasts = forecast.getDays();
-    days.forEach((day, i) => UIController.updateDay(day, daysForecasts[i]))
+    document.querySelectorAll('article.forecast-day').forEach((day, i) => {
+      if(daysForecasts[i]) this.updateDay(day, daysForecasts[i])
+    })
   }
 
   static updateDay(day, forecast) {

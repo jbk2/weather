@@ -26,13 +26,13 @@ export class Forecast {
   
   unpackForecast(forecast) {
     this.#todaysForecast = this.unpackToday(forecast.currentConditions)
-    this.#daysForecasts = this.unpackFutureDays(forecast.days)
+    this.#daysForecasts = this.unpackFutureDays(forecast.days.slice(1))
   }
 
   unpackToday(today) {
     return {
-      day: this.getDay(today.datetimeEpoch, 'long'),
-      date: this.getDate(today.datetimeEpoch),
+      day: this.formatDay(today.datetimeEpoch, 'long'),
+      date: this.formatDate(today.datetimeEpoch),
       time: today.datetime.slice(0, -3),
       temp: this.toCelsius(today.temp),
       icon: today.icon,
@@ -43,20 +43,14 @@ export class Forecast {
   }
 
   unpackFutureDays(days) {
-    const daysForecasts = []
-    days.shift()
-    days.forEach((day) => {
-      daysForecasts.push(
-        { maxTemp: this.toCelsius(day.tempmax),
-          minTemp: this.toCelsius(day.tempmin),
-          icon: day.icon,
-          day: this.getDay(day.datetimeEpoch, 'short')
-        }
-      )
-    });
-    return daysForecasts
-  }
-  
+    return days.map(day => ({
+        day: this.formatDay(day.datetimeEpoch, 'short'),
+        icon: day.icon,
+        maxTemp: this.toCelsius(day.tempmax),
+        minTemp: this.toCelsius(day.tempmin)
+    }));
+  };
+    
   getForecastJSON() {
     return this.#forecastJSON;
   }
@@ -71,12 +65,12 @@ export class Forecast {
     return Math.floor(((f - 32) * 5) / 9);
   }
 
-  getDay(epochSecs, length) {
+  formatDay(epochSecs, length) {
     const date = new Date(epochSecs * 1000)
     return date.toLocaleDateString('en-US', { weekday: length });
   }
   
-  getDate(epochSecs) {
+  formatDate(epochSecs) {
     const date = new Date(epochSecs * 1000)
     return date.getDate();
   }
