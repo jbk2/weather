@@ -4,11 +4,7 @@ export class Forecast {
   #location;
   #forecastJSON;
   #todaysForecast;
-  #day1Forecast;
-  #day2Forecast;
-  #day3Forecast;
-  #day4Forecast;
-  #day5Forecast;
+  #daysForecasts;
 
   constructor(location) {
     this.setLocation(location);
@@ -30,35 +26,35 @@ export class Forecast {
   
   unpackForecast(forecast) {
     this.#todaysForecast = this.unpackToday(forecast.currentConditions)
-    this.#day1Forecast = this.unpackFutureDay(forecast.days[1])
-    this.#day2Forecast = this.unpackFutureDay(forecast.days[2])
-    this.#day3Forecast = this.unpackFutureDay(forecast.days[3])
-    this.#day4Forecast = this.unpackFutureDay(forecast.days[4])
-    this.#day5Forecast = this.unpackFutureDay(forecast.days[5])
+    this.#daysForecasts = this.unpackFutureDays(forecast.days)
   }
 
   unpackToday(today) {
     return {
-      day: this.getDate(today.datetimeEpoch),
-      date: this.getDay(today.datetimeEpoch),
+      day: this.getDay(today.datetimeEpoch, 'long'),
+      date: this.getDate(today.datetimeEpoch),
       time: today.datetime.slice(0, -3),
       temp: this.toCelsius(today.temp),
       icon: today.icon,
       precipitation: today.precipprob,
-      humidity: today.humidity,
-      wind: today.windspeed
+      humidity: Math.floor(today.humidity),
+      windSpeed: Math.floor(today.windspeed)
     }
   }
 
-  unpackFutureDay(day) {
-    return {
-      maxTemp: this.toCelsius(day.tempmax),
-      minTemp: this.toCelsius(day.tempmin),
-      icon: day.icon,
-      precipitation: day.precipprob,
-      humidity: day.humidity,
-      wind: day.windspeed
-    }
+  unpackFutureDays(days) {
+    const daysForecasts = []
+    days.shift()
+    days.forEach((day) => {
+      daysForecasts.push(
+        { maxTemp: this.toCelsius(day.tempmax),
+          minTemp: this.toCelsius(day.tempmin),
+          icon: day.icon,
+          day: this.getDay(day.datetimeEpoch, 'short')
+        }
+      )
+    });
+    return daysForecasts
   }
   
   getForecastJSON() {
@@ -67,29 +63,17 @@ export class Forecast {
   getToday() {
     return this.#todaysForecast
   }
-  getDay1() {
-    return this.#day1Forecast
-  }
-  getDay2() {
-    return this.#day2Forecast
-  }
-  getDay3() {
-    return this.#day3Forecast
-  }
-  getDay4() {
-    return this.#day4Forecast
-  }
-  getDay5() {
-    return this.#day5Forecast
+  getDays() {
+    return this.#daysForecasts
   }
 
   toCelsius(f) {
     return Math.floor(((f - 32) * 5) / 9);
   }
 
-  getDay(epochSecs) {
+  getDay(epochSecs, length) {
     const date = new Date(epochSecs * 1000)
-    return date.toLocaleDateString('en-US', { weekday: 'short' });
+    return date.toLocaleDateString('en-US', { weekday: length });
   }
   
   getDate(epochSecs) {

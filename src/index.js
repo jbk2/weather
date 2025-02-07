@@ -8,12 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
   areaForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     let inputVal = event.target.querySelector('input').value;
-    console.log(inputVal);
     event.target.reset();
     
     const forecast = new Forecast(inputVal);
     await forecast.fetchForecast();
-    console.log(forecast.getForecastJSON())
     UIController.displayForecast(forecast);
     return forecast;
   });

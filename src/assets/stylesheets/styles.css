@@ -40,7 +40,7 @@ const [sun, cloud25, cloud50, cloud75, cloud100, rainLight, rainMedium, rainHeav
 }
 
 .partly-cloudy-night::before {
-  content: '⛅︎'
+  content: '⛅'
 }
 
 .clear-day::before {
@@ -205,11 +205,11 @@ article > #left-section {
   align-items: center;
 }
 
-article > #left-section > .icon-today {
-  margin-right: 0.5rem;
-}  
+article > #left-section > #temp-today {
+  margin-left: 0.5rem;
+} 
 
-article #left-section #temp-today > sups.degrees {
+article #left-section > sup.degrees {
   margin-right: 0.6rem;
   font-size: large;
   font-variation-settings: "wght" 350;
@@ -243,8 +243,25 @@ article > #left-section > #stats > p {
   font-variation-settings: "wght" 330;
 }
 
-#right-section #date {
+div#day-date-today {
+  display: flex;
+}
+
+#day-today  {
+  margin-right: 0.3rem;
+}
+
+#date-today {
   font-feature-settings: "ordn";
+}
+
+#time-today {
+  margin-top: 0.2rem;
+  font-variant-numeric: lining-nums;
+}
+
+#time-today > span {
+  margin-left: 0.1rem;
 }
 
 #ordinal {
