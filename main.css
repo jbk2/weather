@@ -1,0 +1,320 @@
+@font-face {
+  font-family: 'raleway';
+  src: url(d8040b0cc740dda7550a.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'sixtyfour';
+  src: url(feaf2a0b7232fd2c18c5.ttf) format('truetype');
+}
+
+const [sun, cloud25, cloud50, cloud75, cloud100, rainLight, rainMedium, rainHeavy, snow, wind ] = ['☀️', '🌤️', '⛅', '🌥️', '☁️', , '🌧️🌧️', '🌧️🌧️🌧️', , '💨']
+
+.snow::before {
+  content: '🌨️'
+}
+
+.rain::before {
+   content: '🌧️'
+}
+
+.fog::before {
+   content: '🌫️'
+}
+
+.wind::before {
+   content: '🌬️'
+}	
+
+.cloudy::before {
+   content: '☁️'
+}
+
+.partly-cloudy-day::before {
+   content: '⛅'
+}
+
+.partly-cloudy-night::before {
+  content: '⛅'
+}
+
+.clear-day::before {
+  content: '☀️'
+}
+
+.clear-night::before {
+  content: '🌖'
+}
+
+/* ########################  Global ########################## */
+body {
+  font-family: 'raleway';
+  margin: 0;
+  background-color: rgb(239, 246, 235);
+}
+
+h4 {
+  font-size: xx-large;
+  font-variation-settings: "wght" 600;
+}
+
+h5 {
+  font-size: x-large;
+  font-variation-settings: "wght" 630;
+}
+
+h4, h5, p {
+  margin: 0;
+}
+
+sups {
+  vertical-align: super;
+}
+
+/* ########################  Header ########################## */
+header {
+  /* width: 100%; */
+  background-color: rgb(16, 58, 104);
+  height: fit-content;
+  padding-block: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo-type {
+  margin-left: 2rem;
+  color: white;
+  font-family: 'sixtyfour';
+  font-size: xx-large;
+  /* scan -53-100, bled 0-100, xela & yela -100-100 */
+  font-variation-settings: "BLED" 0, "SCAN" 0 , "XELA" 0, "YELA" 0;
+}
+
+form#area-form {
+  height: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form#area-form * {
+  font-family: "raleway";
+  border: none;
+}
+
+form#area-form > input {
+  border-radius: 3px;
+  height: 2rem;
+  font-size: 1rem;
+  padding-left: 0.4rem;
+}
+
+form#area-form > input::placeholder {
+  font-size: 1rem;
+  padding-left: 0.4rem;
+  opacity: 80%;
+}
+
+form#area-form > button {
+  height: 2.1rem;
+  margin-left: 0.2rem;
+  padding-inline: 0.5rem;
+  font-variation-settings: "wght" 550;
+  letter-spacing: 0.05rem;
+  font-size: medium;
+  border-radius: 3px;
+  color: lightcyan;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
+}
+
+form#area-form > button:hover {
+  cursor: pointer;
+}
+
+/* ########################  Main Content ########################## */
+main {
+  margin-top: 15vh;
+  height: 100vh;
+}
+
+/* ########################  Forecast section ########################## */
+section#forecast {
+  display: flex;
+  align-items: center;
+  position: relative;
+  isolation: isolate;
+  margin-inline: auto;
+  width: 80vw;
+}
+
+section#forecast::after {
+  position: absolute;
+  content: "";
+  background: linear-gradient(
+    to right,
+    rgb(175, 223, 255),
+    rgb(207, 100, 207),
+    #f95858
+  );
+  transform: skewY(-3deg);
+  inset: 0;
+  z-index: -1;
+  --mask: 
+    conic-gradient(from 32.5deg at left,#0000,#000 1deg 114deg,#0000 115deg) left/51% 31.39px repeat-y,
+    conic-gradient(from -147.5deg at right,#0000,#000 1deg 114deg,#0000 115deg) right/51% 31.39px repeat-y;
+  -webkit-mask: var(--mask);
+}
+
+section#forecast > div {
+  width: fit-content;
+  margin: auto;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 1;
+  grid-template-rows: 0.9fr 1fr;
+  gap: 4px;
+}
+
+#top-row #right-section > p > span {
+  font-feature-settings: "ordn";
+}
+
+/* ########################  Top Row - left section ########################## */
+#top-row {
+  margin-top: 2rem;
+  padding-inline: 1rem;
+  height: 3rem;
+}
+
+article#current-weather {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+article > #left-section {
+  display: flex;
+  align-items: center;
+}
+
+article > #left-section > #temp-today {
+  margin-left: 0.5rem;
+} 
+
+article #left-section > sup.degrees {
+  margin-right: 0.6rem;
+  font-size: large;
+  font-variation-settings: "wght" 350;
+}
+
+article > #left-section > #stats {
+  margin: auto;
+}
+
+article > #left-section > #stats > p {
+  margin: 0;
+  font-size: x-small;
+}
+
+#stats > p > span {
+  margin-left: 0.3rem;
+  font-variation-settings: "wght" 600;
+}
+
+#icon-today {
+  font-size: 4rem;
+}
+/* ########################  Top Row - right section ########################## */
+#current-weather > #right-section {
+  display: flex;
+  flex-direction: column;
+}
+
+#right-section > p {
+  margin-left: 0.2rem;
+  font-variation-settings: "wght" 330;
+}
+
+div#day-date-today {
+  display: flex;
+}
+
+#day-today  {
+  margin-right: 0.3rem;
+}
+
+#date-today {
+  font-feature-settings: "ordn";
+}
+
+#time-today {
+  margin-top: 0.2rem;
+  font-variant-numeric: lining-nums;
+}
+
+#time-today > span {
+  margin-left: 0.1rem;
+}
+
+#ordinal {
+  font-size: x-small;
+}
+
+/* ######################## Bottom Row ########################## */
+#bottom-row {
+  /* margin-top: 1rem; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 4rem;
+}
+
+#bottom-row > article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1.4rem;
+}
+
+#bottom-row > article:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.icon-day {
+  font-size: 2.6rem;
+}
+
+div.temp {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2rem;
+}
+
+div.temp > p, #stats > p > span {
+font-variant-numeric: lining-nums;
+}
+
+div.temp p.max {
+  margin-right: 0.4rem;
+}
+
+/* Visual Crossing 'icons2' *16 possible icon values: */
+/* snow-showers-day
+snow-showers-night
+thunder-rain
+thunder-showers-day
+thunder-showers-night
+rain
+showers-day
+showers-night
+fog
+wind
+cloudy
+partly-cloudy-day
+partly-cloudy-night
+clear-day
+clear-night */
