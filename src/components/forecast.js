@@ -66,16 +66,32 @@ export class Forecast {
   }
 
   formatDay(epochSecs, length) {
+    const nowEpochSecs = Math.floor(Date.now() / 1000);
+    const errors = []
+    if (typeof epochSecs !== 'number') errors.push('not a number');
+    if (epochSecs < 1) errors.push('less than 1');
+    if (epochSecs > nowEpochSecs) errors.push('greater than current epoch time');
+    if (isNaN(epochSecs)) errors.push('NaN value');
+   
+    if (errors.length > 0) {
+      throw new Error(`Invalid epoch seconds value: ${errors.join(', ')}`);
+    }
+
     const date = new Date(epochSecs * 1000)
     return date.toLocaleDateString('en-US', { weekday: length });
   }
   
   formatDate(epochSecs) {
-    console.log(epochSecs)
-    const nowEpochMiliSecs = Math.floor(Date.now() / 1000);
+    const nowEpochSecs = Math.floor(Date.now() / 1000);
+    const errors = [];
 
-    if(typeof epochSecs !== 'number' || epochSecs < 1 || epochSecs > nowEpochMiliSecs || isNaN(epochSecs)) {
-      throw new Error('invalid epoch seconds value passed');
+    if (typeof epochSecs !== 'number') errors.push('not a number');
+    if (epochSecs < 1) errors.push('less than 1');
+    if (epochSecs > nowEpochSecs) errors.push('greater than current epoch time');
+    if (isNaN(epochSecs)) errors.push('NaN value');
+
+    if (errors.length > 0) {
+        throw new Error(`Invalid epoch seconds value: ${errors.join(', ')}`);
     }
 
     const date = new Date(epochSecs * 1000)
