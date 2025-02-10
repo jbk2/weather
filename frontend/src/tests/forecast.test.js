@@ -14,8 +14,8 @@ describe("Forecast", () => {
       expect(() => forecast.formatDate("")).toThrow("not a number");
       expect(() => forecast.formatDate(0)).toThrow("less than 1");
       expect(() => forecast.formatDate(NaN)).toThrow("NaN value");
-      expect(() => forecast.formatDate(99999999999)).toThrow(
-        "greater than current epoch time"
+      expect(() => forecast.formatDate(99999999999))
+        .toThrow("greater than current epoch time"
       );
     });
   });
@@ -37,9 +37,7 @@ describe("Forecast", () => {
 
     test("#formatDay with a valid epoch seconds value returns a, short or long, week day", () => {
       testEpochSecs.forEach((testEpoch) => {
-        expect(daysOfWeekShort).toContain(
-          forecast.formatDay(testEpoch, "short")
-        );
+        expect(daysOfWeekShort).toContain(forecast.formatDay(testEpoch, "short"));
         expect(daysOfWeekLong).toContain(forecast.formatDay(testEpoch, "long"));
       });
     });
@@ -47,7 +45,8 @@ describe("Forecast", () => {
     test("#formatDay returns corresponding error if given an incorrect value", () => {
       expect(() => {forecast.formatDay("asdfasdf")}).toThrow("not a number");
       expect(() => {forecast.formatDay(0)}).toThrow("less than 1");
-      expect(() => {forecast.formatDay(epochSecsNow + oneDaySecs * 6)}).toThrow("greater than current epoch time + 5 days");
+      expect(() => {forecast.formatDay(epochSecsNow + oneDaySecs * 6)})
+        .toThrow("greater than current epoch time + 5 days");
       expect(() => {forecast.formatDay(NaN)}).toThrow("NaN value");
     });
   });
