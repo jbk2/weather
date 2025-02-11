@@ -20,8 +20,16 @@ export class Forecast {
 
   async fetchForecast() {
     const forecast = await WeatherApi.getForecast(this.getLocation());
+
+    if(forecast.error) {
+      alert(`${forecast.error}`);
+      return false;
+    }
+
     this.#forecastJSON = forecast;
+    console.log("this is the fetched forecast#################", this.getForecastJSON())
     this.unpackForecast(forecast);
+    return true;
   }
 
   unpackForecast(forecast) {

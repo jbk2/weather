@@ -20,6 +20,8 @@ describe('Weather API route', () =>  {
     const res = await request(app).get("/api/weather?location=london")
     
     expect(fetch).toHaveBeenCalledWith(expect.stringContaining('london'));
+    expect(fetch).toHaveBeenCalledWith(
+      expect.stringMatching(/weather.visualcrossing.com\/VisualCrossingWebServices\/rest/));    
     expect(res.status).toBe(200);
     expect(res.body).toEqual(mockData);
   });
@@ -42,7 +44,6 @@ describe('Weather API route', () =>  {
       }
     ));
     const res = await request(app).get("/api/weather?location=kjglgcgc")
-    console.log("RESPONSE body are HERE ==>>", res.body)
     
     expect(res.status).toBe(400);
     expect(res.body.error).toEqual("Invalid location");

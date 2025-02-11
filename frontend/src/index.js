@@ -14,12 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     event.target.reset();
     const forecast = new Forecast(inputVal);
-    await forecast.fetchForecast();
+    const success = await forecast.fetchForecast();
 
-    if(forecast.getForecastJSON()) {
+    if(success) {
       UIController.displayForecast(forecast);
-    } else {
-      alert('Failed to fetch forecast data.');
     } 
   }
 });

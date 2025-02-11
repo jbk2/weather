@@ -13,13 +13,17 @@ router.get("/weather", async (req, res) => {
     `?key=${process.env.WEATHER_API_KEY}&iconSet=icons1`
     );
     const contentType = response.headers.get("content-type");
-    
-    let data;
+    const rawData = await response.text();
 
+    let data
     if(contentType && contentType.includes("application/json")) {
-      data = await response.json();
+      try {
+        data = JSON.parse(rawData);
+      } catch (jsonError) {
+        return res.status(500).json({ error: rawData });
+      }
     } else {
-      data = await response.text();
+      data = rawData;
     }
     
     if(response.status === 400) {
