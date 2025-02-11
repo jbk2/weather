@@ -7,26 +7,22 @@ router.get("/weather", async (req, res) => {
     const dateToday = new Date(Date.now()).toISOString().split("T")[0];
     const dateIn5Days = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
     const { location } = req.query;
-    if (!location) return res.status(400).json({ error: "Location is required" });
-
-    const weatherApiKey = process.env.WEATHER_API_KEY;
-    const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}/${dateToday}/${dateIn5Days}?key=${weatherApiKey}&iconSet=icons1`;
-    const response = await fetch(apiUrl);
+    const response = await fetch(
+    `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/` +
+    `services/timeline/${location}/${dateToday}/${dateIn5Days}` +
+    `?key=${process.env.WEATHER_API_KEY}&iconSet=icons1`
+    );
 
     if (!response.ok) {
       const text = await response.text();
-      console.error(`External API error: ${response.status} - ${text}`);
-      throw new Error(`External API error: ${response.status}`);
+      throw new Error(`External API error: ${response.status} - ${text}`);
     }
 
     const data = await response.json();
-
     res.json(data);
+
   } catch (error) {
-    console.error("Error in /weather route:", error);
-    res
-      .status(500)
-      .json({ error: "API request failed", details: error.message });
+    res.status(500).json({ error: "API request failed", details: error.message });
   }
 });
 
