@@ -60,12 +60,3 @@ describe("Forecast", () => {
   });
 });
 
-// api testing:
-// queueMicrotask.mockreturnvalueonce({})
-// .mock.calls).toHaveLength(1)
-// expect(someMockFunction.mock.calls[0][0]).toBe('correct url');
-// mock.results[0].value).toBe('return json');
-// mock.results[0].value.days.length).toEq(6);
-// jest.spyOn(fetch, 'get').mockreturnvalueonce({
-//   {json: 'json'}
-// })

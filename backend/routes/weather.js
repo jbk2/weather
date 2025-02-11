@@ -12,14 +12,25 @@ router.get("/weather", async (req, res) => {
     `services/timeline/${location}/${dateToday}/${dateIn5Days}` +
     `?key=${process.env.WEATHER_API_KEY}&iconSet=icons1`
     );
+    const contentType = response.headers.get("content-type");
+    
+    let data;
 
-    if (!response.ok) {
-      const text = await response.text();
-      throw new Error(`External API error: ${response.status} - ${text}`);
+    if(contentType && contentType.includes("application/json")) {
+      data = await response.json();
+    } else {
+      data = await response.text();
     }
-
-    const data = await response.json();
-    res.json(data);
+    
+    if(response.status === 400) {
+      return res.status(400).json({error: "Invalid location", details: data });
+    }
+    
+    if (!response.ok) {
+      return res.status(response.status).json({error: "External API error", details: data });
+    }
+    
+    return res.json(data);
 
   } catch (error) {
     res.status(500).json({ error: "API request failed", details: error.message });
