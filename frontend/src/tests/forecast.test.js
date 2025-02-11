@@ -35,19 +35,37 @@ describe("Forecast", () => {
     const testEpochSecs = [1738947060, 1738947060 - oneDaySecs * 3];
     const epochSecsNow = Date.now() / 1000;
 
-    test("#formatDay with a valid epoch seconds value returns a, short or long, week day", () => {
+    test("given the correct epochSecs value returns the correct, short or long, week day", () => {
       testEpochSecs.forEach((testEpoch) => {
         expect(daysOfWeekShort).toContain(forecast.formatDay(testEpoch, "short"));
         expect(daysOfWeekLong).toContain(forecast.formatDay(testEpoch, "long"));
       });
     });
-
-    test("#formatDay returns corresponding error if given an incorrect value", () => {
+    
+    test("returns an error if given a string as epochSecs", () => {
       expect(() => {forecast.formatDay("asdfasdf")}).toThrow("not a number");
+    })
+    
+    test("returns an error if given less than 1 as epochSecs", () => {
       expect(() => {forecast.formatDay(0)}).toThrow("less than 1");
-      expect(() => {forecast.formatDay(epochSecsNow + oneDaySecs * 6)})
-        .toThrow("greater than current epoch time + 5 days");
+    })
+    
+    test("returns an error if given an epochSecs value more than 5 days in future", () => {
+      expect(() => {forecast.formatDay(epochSecsNow + oneDaySecs * 6)}).toThrow("greater than current epoch time + 5 days");
+    })
+    
+    test("returns an error if given a NaN epochSecs value", () => {
       expect(() => {forecast.formatDay(NaN)}).toThrow("NaN value");
     });
   });
 });
+
+// api testing:
+// queueMicrotask.mockreturnvalueonce({})
+// .mock.calls).toHaveLength(1)
+// expect(someMockFunction.mock.calls[0][0]).toBe('correct url');
+// mock.results[0].value).toBe('return json');
+// mock.results[0].value.days.length).toEq(6);
+// jest.spyOn(fetch, 'get').mockreturnvalueonce({
+//   {json: 'json'}
+// })

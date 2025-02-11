@@ -13,9 +13,7 @@ Production version is running at; 'https://jbk2.github.io/weather/' (calling API
 - The app uses the Fetch API to make requests to the OpenWeatherMap API.
 - 
 
-
 ### ToDo list:
-- Handle errors for unrecognised area input.
 - Integrate geolocation API to get users location.
 
 
