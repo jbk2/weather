@@ -27,11 +27,11 @@ router.get("/weather", async (req, res) => {
     }
     
     if(response.status === 400) {
-      return res.status(400).json({error: "Invalid location", details: data });
+      return res.status(400).json(data);
     }
     
     if (!response.ok) {
-      return res.status(response.status).json({error: "External API error", details: data });
+      return res.status(response.status).json(data);
     }
     
     return res.json(data);

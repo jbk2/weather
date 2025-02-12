@@ -27,7 +27,6 @@ export class Forecast {
     }
 
     this.#forecastJSON = forecast;
-    console.log("this is the fetched forecast#################", this.getForecastJSON())
     this.unpackForecast(forecast);
     return true;
   }

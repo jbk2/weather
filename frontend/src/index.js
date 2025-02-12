@@ -1,10 +1,9 @@
-import './assets/stylesheets/styles.css'
+import './assets/stylesheets/styles.css';
 import { Forecast } from './components/forecast';
 import { UIController } from './services/UIController';
 
 document.addEventListener('DOMContentLoaded', () => {
   const areaForm = document.getElementById('area-form');
-
   areaForm.addEventListener('submit', handleFormSubmit);
   
   async function handleFormSubmit(event) {

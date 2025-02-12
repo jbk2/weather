@@ -12,18 +12,17 @@ export class WeatherApi {
       }
       
       if (!response.ok) {
-        return {
-          error: typeof data === "string" ? data : JSON.stringify(data.error)
-        };
+        // console.log("HERES DATA from non ok response", data)
+        return data
       }
 
-      console.log("this is the weatherApi data response", data);
+      // console.log("this is the weatherApi data response", data);
       return data
     } catch (error) {
       console.error("Weather API fetch error:", error);
       return {
         error: "Network error",
-        details: "Could not reach the weather service. Check your connection.",
+        details: error.message || "Could not reach the weather service. Check your connection.",
       };
     }
   }
