@@ -17,6 +17,7 @@ export class WeatherApi {
         };
       }
 
+      console.log("this is the weatherApi data response", data);
       return data
     } catch (error) {
       console.error("Weather API fetch error:", error);
