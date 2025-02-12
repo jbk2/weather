@@ -32,6 +32,7 @@ export class Forecast {
   }
 
   unpackForecast(forecast) {
+    this.setLocation(forecast.resolvedAddress);
     this.#todaysForecast = this.unpackToday(forecast.currentConditions);
     this.#daysForecasts = this.unpackFutureDays(forecast.days.slice(1));
   }

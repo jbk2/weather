@@ -6,6 +6,7 @@ export class UIController {
   
   static updateToday(forecast) {
     const elements = {
+      location: document.getElementById('location'),
       icon: document.getElementById('icon-today'),
       temp: document.getElementById('temp-today'),
       precip: document.getElementById('precip-val'),
@@ -17,6 +18,7 @@ export class UIController {
     };
     const today = forecast.getToday()
 
+    elements.location.innerText = forecast.getLocation();
     elements.icon.className = today.icon;
     elements.temp.innerText = today.temp;
     elements.precip.innerText = today.precipitation + '%';

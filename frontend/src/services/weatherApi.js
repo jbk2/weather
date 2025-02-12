@@ -12,11 +12,10 @@ export class WeatherApi {
       }
       
       if (!response.ok) {
-        // console.log("HERES DATA from non ok response", data)
         return data
       }
 
-      // console.log("this is the weatherApi data response", data);
+      console.log("this is the weatherApi data response", data);
       return data
     } catch (error) {
       console.error("Weather API fetch error:", error);

@@ -248,6 +248,13 @@ div#day-date-today {
   font-feature-settings: "ordn";
 }
 
+#center-section > p#location {
+  font-variation-settings: "wght" 330;
+  font-size: small;
+  max-width: 8rem;
+  text-align: center;
+}
+
 #time-today {
   margin-top: 0.2rem;
   font-variant-numeric: lining-nums;
